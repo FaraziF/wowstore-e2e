@@ -1,0 +1,36 @@
+# ── Dependencies ─────────────────────────────────────────────────────────────
+node_modules/
+
+# ── Secrets & local config (NEVER commit these) ───────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Playwright generated output ───────────────────────────────────────────────
+playwright-report/
+playwright/.auth/
+test-results/
+blob-report/
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ── OS junk ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDE / editor ─────────────────────────────────────────────────────────────
+.vscode/settings.json
+.cursor/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ── Stray directories (typo artifact) ────────────────────────────────────────
+{tests/
+
+# ── Build output ─────────────────────────────────────────────────────────────
+dist/
+build/

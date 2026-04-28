@@ -1,0 +1,106 @@
+# .github/workflows/wowstore-e2e.yml
+# Runs WowStore E2E tests on every push to main and on all PRs.
+# Smoke tests gate PRs; full regression runs on main branch pushes.
+
+name: WowStore E2E Tests
+
+on:
+  push:
+    branches: [main, master, release/**]
+  pull_request:
+
+env:
+  NODE_VERSION: "20"
+
+jobs:
+  # ── Smoke gate (every PR) ─────────────────────────────────────────────────
+  smoke:
+    name: Smoke Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: wowstore-e2e/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: wowstore-e2e
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+        working-directory: wowstore-e2e
+
+      - name: Start WordPress (wp-env)
+        run: |
+          npm install -g @wordpress/env
+          wp-env start
+        working-directory: .
+
+      - name: Run smoke tests
+        env:
+          WP_BASE_URL:       http://localhost:8888
+          WP_ADMIN_USER:     admin
+          WP_ADMIN_PASSWORD: password
+        run: npx playwright test --grep @smoke --project=chromium-admin
+        working-directory: wowstore-e2e
+
+      - name: Upload smoke report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-report-${{ github.run_id }}
+          path: wowstore-e2e/playwright-report/
+          retention-days: 7
+
+  # ── Full regression (main branch only) ────────────────────────────────────
+  regression:
+    name: Full Regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    needs: smoke
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: wowstore-e2e/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: wowstore-e2e
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox
+        working-directory: wowstore-e2e
+
+      - name: Start WordPress (wp-env)
+        run: |
+          npm install -g @wordpress/env
+          wp-env start
+
+      - name: Run full regression suite
+        env:
+          WP_BASE_URL:       http://localhost:8888
+          WP_ADMIN_USER:     admin
+          WP_ADMIN_PASSWORD: password
+          CI:                true
+        run: npx playwright test --grep @regression
+        working-directory: wowstore-e2e
+
+      - name: Upload regression report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-report-${{ github.run_id }}
+          path: wowstore-e2e/playwright-report/
+          retention-days: 30
