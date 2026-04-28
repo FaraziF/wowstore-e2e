@@ -102,49 +102,6 @@ Some features should be **manually tested** or use **visual regression** tools i
 
 ---
 
-### 10. Up-Sell / Cross-Sell
-```gherkin
-Scenario: Up-sell products appear on single product page
-  Given a product has up-sell products configured
-  When a shopper views that product
-  Then the up-sell section is visible with at least 1 product
-
-Scenario: Cross-sell products appear on cart page
-  Given a product in cart has cross-sell products assigned
-  When the shopper views the cart
-  Then cross-sell recommendations are displayed
-```
-
-### 11. Cart Reserved Timer
-```gherkin
-Scenario: Timer displays on cart page when enabled
-  Given Cart Reserved Timer addon is enabled with a 15-minute timer
-  When a shopper with items in cart visits the cart page
-  Then a countdown timer is visible showing time remaining
-
-Scenario: Timer shows configured FOMO message
-  Given a custom message "Your cart is reserved for:" is configured
-  When the shopper views cart
-  Then that exact message text is visible above the timer
-```
-
-### 12. WooCommerce Builder — Checkout Page
-```gherkin
-Scenario: Custom checkout template loads instead of default WC checkout
-  Given a custom Checkout template is published and assigned
-  When a shopper navigates to /checkout
-  Then the custom template layout is rendered (not default WC)
-  And billing/shipping fields are visible and functional
-
-Scenario: Order can be placed with custom checkout template active
-  Given a product is in cart and custom checkout is active
-  When the shopper fills in details and places order
-  Then an order confirmation is received
-  And the order appears in WP admin Orders
-```
-
----
-
 ## 🗺️ Phased Automation Roadmap
 
 ### Phase 1 — Foundation ✅ COMPLETE
