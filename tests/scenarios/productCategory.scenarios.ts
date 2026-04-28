@@ -7,12 +7,15 @@ export type ProductCategoryScenario = {
   headingText: string;
   numberOfCategories: number;
   enableHeading: boolean;
+  /** Relative path to the spec file — Cmd+Click to navigate in VS Code */
+  specFile: string;
 };
 
 export const productCategoryScenarios: ProductCategoryScenario[] = [
   {
     id: 'pcat-1',
     title: 'Scenario: configure Product Category #1 and verify frontend',
+    specFile: 'tests/blocks/product-category.spec.ts',
     gherkin: `Feature: WowStore Product Category Block
 
 Scenario: Configure "Product Category #1" block and verify on frontend

@@ -4,6 +4,8 @@
 //
 // Context: Pre-Order is a Pro revenue feature for product launch campaigns.
 // It replaces Add to Cart with a pre-order button and optional countdown timer.
+//
+// 💡 specFile: Cmd+Click (Mac) / Ctrl+Click (Win) the path to jump to the spec.
 
 import type { AnyScenario } from './index';
 
@@ -12,6 +14,7 @@ export const preOrderScenarios: AnyScenario[] = [
     id: 'preorder-button-replaces-atc',
     title: 'Scenario: Pre-order button replaces the Add to Cart button @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/addons/pre-order.spec.ts',
     gherkin: `Feature: WowStore Pre-Order
 
 Scenario: Pre-order button replaces the Add to Cart button
@@ -26,6 +29,7 @@ Scenario: Pre-order button replaces the Add to Cart button
     id: 'preorder-countdown-visible',
     title: 'Scenario: Countdown timer displays on a pre-order product page @regression',
     tags: ['@regression'],
+    specFile: 'tests/addons/pre-order.spec.ts',
     gherkin: `Feature: WowStore Pre-Order
 
 Scenario: Countdown timer displays on a pre-order product page
@@ -40,6 +44,7 @@ Scenario: Countdown timer displays on a pre-order product page
     id: 'preorder-can-be-purchased',
     title: 'Scenario: A pre-order product can be purchased through checkout @regression',
     tags: ['@regression'],
+    specFile: 'tests/addons/pre-order.spec.ts',
     gherkin: `Feature: WowStore Pre-Order
 
 Scenario: A pre-order product can be purchased through checkout

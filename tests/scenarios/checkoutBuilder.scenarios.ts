@@ -5,6 +5,8 @@
 // Context: WowStore replaces the default WooCommerce checkout with a
 // Gutenberg-built custom template. These tests verify that template
 // renders correctly and that orders can be placed through it.
+//
+// 💡 specFile: Cmd+Click (Mac) / Ctrl+Click (Win) the path to jump to the spec.
 
 import type { AnyScenario } from './index';
 
@@ -13,6 +15,7 @@ export const checkoutBuilderScenarios: AnyScenario[] = [
     id: 'checkout-template-loads',
     title: 'Scenario: WowStore custom checkout template loads on /checkout @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/store-builder/checkout-builder.spec.ts',
     gherkin: `Feature: WowStore Checkout Builder
 
 Scenario: WowStore custom checkout template loads on /checkout
@@ -29,6 +32,7 @@ Scenario: WowStore custom checkout template loads on /checkout
     id: 'checkout-payment-methods-visible',
     title: 'Scenario: Payment method options are visible on the checkout page @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/store-builder/checkout-builder.spec.ts',
     gherkin: `Feature: WowStore Checkout Builder
 
 Scenario: Payment method options are visible on the checkout page
@@ -43,6 +47,7 @@ Scenario: Payment method options are visible on the checkout page
     id: 'checkout-order-placed',
     title: 'Scenario: A complete order can be placed through the WowStore checkout @regression',
     tags: ['@regression'],
+    specFile: 'tests/store-builder/checkout-builder.spec.ts',
     gherkin: `Feature: WowStore Checkout Builder
 
 Scenario: A complete order can be placed through the WowStore checkout
@@ -67,6 +72,7 @@ Scenario: A complete order can be placed through the WowStore checkout
     id: 'checkout-empty-cart-redirect',
     title: 'Scenario: Navigating to checkout with empty cart redirects to shop @regression',
     tags: ['@regression'],
+    specFile: 'tests/store-builder/checkout-builder.spec.ts',
     gherkin: `Feature: WowStore Checkout Builder
 
 Scenario: Navigating to checkout with empty cart redirects to shop

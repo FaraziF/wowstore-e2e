@@ -4,6 +4,8 @@
 //
 // Context: Uses WowStore's built-in swatches (not a third-party plugin).
 // Changelog shows 4 regression fixes in last 10 releases — high-risk area.
+//
+// 💡 specFile: Cmd+Click (Mac) / Ctrl+Click (Win) the path to jump to the spec.
 
 import type { AnyScenario } from './index';
 
@@ -12,6 +14,7 @@ export const variationSwatchesScenarios: AnyScenario[] = [
     id: 'swatches-replace-dropdown',
     title: 'Scenario: Color attribute is displayed as swatches instead of a dropdown @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/addons/variation-swatches.spec.ts',
     gherkin: `Feature: WowStore Variation Swatches
 
 Scenario: Color attribute is displayed as swatches instead of a dropdown
@@ -26,6 +29,7 @@ Scenario: Color attribute is displayed as swatches instead of a dropdown
     id: 'swatches-selection-updates-image',
     title: 'Scenario: Selecting a color swatch updates the product image @regression',
     tags: ['@regression'],
+    specFile: 'tests/addons/variation-swatches.spec.ts',
     gherkin: `Feature: WowStore Variation Swatches
 
 Scenario: Selecting a color swatch updates the product image
@@ -39,6 +43,7 @@ Scenario: Selecting a color swatch updates the product image
     id: 'swatches-oos-disabled',
     title: 'Scenario: Out-of-stock variation swatch is visually disabled @regression',
     tags: ['@regression'],
+    specFile: 'tests/addons/variation-swatches.spec.ts',
     gherkin: `Feature: WowStore Variation Swatches
 
 Scenario: Out-of-stock variation swatch is visually disabled
@@ -52,6 +57,7 @@ Scenario: Out-of-stock variation swatch is visually disabled
     id: 'swatches-size-type',
     title: 'Scenario: Size attribute is displayed as label swatches @regression',
     tags: ['@regression'],
+    specFile: 'tests/addons/variation-swatches.spec.ts',
     gherkin: `Feature: WowStore Variation Swatches
 
 Scenario: Size attribute is displayed as label swatches

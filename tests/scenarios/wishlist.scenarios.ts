@@ -4,6 +4,8 @@
 //
 // Context: Wishlist is a free/pro retention tool used by most stores.
 // Enables shoppers to save products for later — key for fashion/lifestyle verticals.
+//
+// 💡 specFile: Cmd+Click (Mac) / Ctrl+Click (Win) the path to jump to the spec.
 
 import type { AnyScenario } from './index';
 
@@ -12,6 +14,7 @@ export const wishlistScenarios: AnyScenario[] = [
     id: 'wishlist-add-product',
     title: 'Scenario: Shopper can add a product to the wishlist @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/addons/wishlist.spec.ts',
     gherkin: `Feature: WowStore Wishlist
 
 Scenario: Shopper can add a product to the wishlist
@@ -26,6 +29,7 @@ Scenario: Shopper can add a product to the wishlist
     id: 'wishlist-product-appears-on-page',
     title: 'Scenario: Added product appears on the Wishlist page @regression',
     tags: ['@regression'],
+    specFile: 'tests/addons/wishlist.spec.ts',
     gherkin: `Feature: WowStore Wishlist
 
 Scenario: Added product appears on the Wishlist page
@@ -39,6 +43,7 @@ Scenario: Added product appears on the Wishlist page
     id: 'wishlist-persists-after-refresh',
     title: 'Scenario: Wishlist selection persists after page refresh @regression',
     tags: ['@regression'],
+    specFile: 'tests/addons/wishlist.spec.ts',
     gherkin: `Feature: WowStore Wishlist
 
 Scenario: Wishlist selection persists after page refresh
@@ -51,6 +56,7 @@ Scenario: Wishlist selection persists after page refresh
     id: 'wishlist-remove-product',
     title: 'Scenario: Shopper can remove a product from the wishlist @regression',
     tags: ['@regression'],
+    specFile: 'tests/addons/wishlist.spec.ts',
     gherkin: `Feature: WowStore Wishlist
 
 Scenario: Shopper can remove a product from the wishlist

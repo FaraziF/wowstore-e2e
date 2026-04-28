@@ -1,14 +1,22 @@
 // tests/scenarios/addToCart.scenarios.ts
 // Gherkin scenarios for the Add to Cart frontend shopper flow.
 // Tags: @smoke @regression
+//
+// 💡 HOW TO NAVIGATE: Cmd+Click (Mac) the {@link} path in the @see JSDoc comment
+//    above each scenario to jump directly to the spec file in VS Code.
 
 import type { AnyScenario } from './index';
 
 export const addToCartScenarios: AnyScenario[] = [
+
+  /**
+   * @see {@link ../frontend/add-to-cart.spec.ts}
+   */
   {
     id: 'atc-simple-product',
     title: 'Scenario: Simple product can be added to cart @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/frontend/add-to-cart.spec.ts',
     gherkin: `Feature: Add to Cart — Core Shopper Flow
 
 Scenario: Simple product can be added to cart
@@ -19,10 +27,14 @@ Scenario: Simple product can be added to cart
   And the cart item count increments by 1`,
   },
 
+  /**
+   * @see {@link ../frontend/add-to-cart.spec.ts}
+   */
   {
     id: 'atc-variable-requires-selection',
     title: 'Scenario: Variable product requires variation selection before Add to Cart @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/frontend/add-to-cart.spec.ts',
     gherkin: `Feature: Add to Cart — Core Shopper Flow
 
 Scenario: Variable product requires variation selection before Add to Cart
@@ -33,10 +45,14 @@ Scenario: Variable product requires variation selection before Add to Cart
   And no item is added to the cart`,
   },
 
+  /**
+   * @see {@link ../frontend/add-to-cart.spec.ts}
+   */
   {
     id: 'atc-variable-with-selection',
     title: 'Scenario: Variable product can be added to cart after variation selection @regression',
     tags: ['@regression'],
+    specFile: 'tests/frontend/add-to-cart.spec.ts',
     gherkin: `Feature: Add to Cart — Core Shopper Flow
 
 Scenario: Variable product can be added to cart after variation selection
@@ -47,10 +63,14 @@ Scenario: Variable product can be added to cart after variation selection
   And the cart contains the correct variation`,
   },
 
+  /**
+   * @see {@link ../frontend/add-to-cart.spec.ts}
+   */
   {
     id: 'atc-quantity-increment',
     title: 'Scenario: Shopper can increase quantity before adding to cart @regression',
     tags: ['@regression'],
+    specFile: 'tests/frontend/add-to-cart.spec.ts',
     gherkin: `Feature: Add to Cart — Core Shopper Flow
 
 Scenario: Shopper can increase quantity before adding to cart
@@ -61,10 +81,14 @@ Scenario: Shopper can increase quantity before adding to cart
   Then the cart shows 3 units of that product`,
   },
 
+  /**
+   * @see {@link ../frontend/add-to-cart.spec.ts}
+   */
   {
     id: 'atc-cart-count-updates',
     title: 'Scenario: Cart item count in header updates after adding a product @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/frontend/add-to-cart.spec.ts',
     gherkin: `Feature: Add to Cart — Core Shopper Flow
 
 Scenario: Cart item count in header updates after adding a product

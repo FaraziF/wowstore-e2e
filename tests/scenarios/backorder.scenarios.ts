@@ -4,6 +4,8 @@
 //
 // Context: Backorder lets merchants keep taking orders when stock hits zero.
 // Critical for physical goods stores — revenue stops during stockouts without it.
+//
+// 💡 specFile: Cmd+Click (Mac) / Ctrl+Click (Win) the path to jump to the spec.
 
 import type { AnyScenario } from './index';
 
@@ -12,6 +14,7 @@ export const backorderScenarios: AnyScenario[] = [
     id: 'backorder-button-visible-oos',
     title: 'Scenario: Add to cart button is available for out-of-stock backorder products @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/addons/backorder.spec.ts',
     gherkin: `Feature: WowStore Backorder
 
 Scenario: Add to cart button is available for out-of-stock backorder products
@@ -26,6 +29,7 @@ Scenario: Add to cart button is available for out-of-stock backorder products
     id: 'backorder-custom-label',
     title: 'Scenario: Custom backorder availability label is shown on the product page @regression',
     tags: ['@regression'],
+    specFile: 'tests/addons/backorder.spec.ts',
     gherkin: `Feature: WowStore Backorder
 
 Scenario: Custom backorder availability label is shown on the product page
@@ -39,6 +43,7 @@ Scenario: Custom backorder availability label is shown on the product page
     id: 'backorder-order-placed',
     title: 'Scenario: A backordered product can be purchased successfully @regression',
     tags: ['@regression'],
+    specFile: 'tests/addons/backorder.spec.ts',
     gherkin: `Feature: WowStore Backorder
 
 Scenario: A backordered product can be purchased successfully

@@ -4,6 +4,8 @@
 //
 // This path maps the complete shopper journey:
 //   Browse → Filter → Discover → Decide → Add → Review → Checkout → Confirm
+//
+// 💡 specFile: Cmd+Click (Mac) / Ctrl+Click (Win) the path to jump to the spec.
 
 import type { AnyScenario } from './index';
 
@@ -12,6 +14,7 @@ export const purchaseJourneyScenarios: AnyScenario[] = [
     id: 'journey-browse-to-cart',
     title: 'Scenario: Shopper can browse products and add one to cart @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/frontend/purchase-journey.spec.ts',
     gherkin: `Feature: End-to-End Purchase Journey
 
 Scenario: Shopper can browse products and add one to cart
@@ -27,6 +30,7 @@ Scenario: Shopper can browse products and add one to cart
     id: 'journey-cart-to-checkout',
     title: 'Scenario: Shopper can proceed from cart to WowStore checkout @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/frontend/purchase-journey.spec.ts',
     gherkin: `Feature: End-to-End Purchase Journey
 
 Scenario: Shopper can proceed from cart to WowStore checkout
@@ -43,6 +47,7 @@ Scenario: Shopper can proceed from cart to WowStore checkout
     id: 'journey-full-order-placement',
     title: 'Scenario: Shopper can complete a full order on the WowStore checkout @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/frontend/purchase-journey.spec.ts',
     gherkin: `Feature: End-to-End Purchase Journey
 
 Scenario: Shopper can complete a full order on the WowStore checkout

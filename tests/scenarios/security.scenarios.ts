@@ -5,12 +5,16 @@
 // and output sanitization against common web security threats.
 //
 // Tags: @security @smoke @regression
+//
+// 💡 specFile: Cmd+Click (Mac) / Ctrl+Click (Win) the path to jump to the spec.
 
 export type SecurityScenario = {
   id: string;
   title: string;
   tags: string[];
   gherkin: string;
+  /** Relative path to the spec file — Cmd+Click to navigate in VS Code */
+  specFile: string;
 };
 
 export const securityScenarios: SecurityScenario[] = [
@@ -19,6 +23,7 @@ export const securityScenarios: SecurityScenario[] = [
     id: 'unauth-wc-products-api',
     title: 'Scenario: Unauthenticated request to WC REST products endpoint is rejected @smoke @security',
     tags: ['@smoke', '@security'],
+    specFile: 'tests/security/security.spec.ts',
     gherkin: `Feature: WowStore Security
 
 Scenario: Unauthenticated request to the WC REST products endpoint is rejected
@@ -33,6 +38,7 @@ Scenario: Unauthenticated request to the WC REST products endpoint is rejected
     id: 'unauth-wowstore-ajax',
     title: 'Scenario: Anonymous call to a WowStore admin-ajax action is rejected @smoke @security',
     tags: ['@smoke', '@security'],
+    specFile: 'tests/security/security.spec.ts',
     gherkin: `Feature: WowStore Security
 
 Scenario: Anonymous call to a WowStore admin-ajax action is rejected
@@ -47,6 +53,7 @@ Scenario: Anonymous call to a WowStore admin-ajax action is rejected
     id: 'customer-privilege-escalation',
     title: 'Scenario: Customer-role user cannot access admin WC REST endpoints @regression @security',
     tags: ['@regression', '@security'],
+    specFile: 'tests/security/security.spec.ts',
     gherkin: `Feature: WowStore Security
 
 Scenario: A customer-role user cannot access admin-only WC REST endpoints
@@ -62,6 +69,7 @@ Scenario: A customer-role user cannot access admin-only WC REST endpoints
     id: 'nonce-validation',
     title: 'Scenario: WowStore AJAX request without a valid nonce is rejected @regression @security',
     tags: ['@regression', '@security'],
+    specFile: 'tests/security/security.spec.ts',
     gherkin: `Feature: WowStore Security
 
 Scenario: A WowStore AJAX request without a valid nonce is rejected
@@ -76,6 +84,7 @@ Scenario: A WowStore AJAX request without a valid nonce is rejected
     id: 'xss-in-product-name',
     title: 'Scenario: Product with XSS payload in name is safely escaped in the block frontend @regression @security',
     tags: ['@regression', '@security'],
+    specFile: 'tests/security/security.spec.ts',
     gherkin: `Feature: WowStore Security
 
 Scenario: A product with an XSS payload in its name is safely escaped in the block frontend
@@ -91,6 +100,7 @@ Scenario: A product with an XSS payload in its name is safely escaped in the blo
     id: 'xss-in-block-attribute',
     title: 'Scenario: HTML injected into a block heading attribute is sanitized in frontend render @regression @security',
     tags: ['@regression', '@security'],
+    specFile: 'tests/security/security.spec.ts',
     gherkin: `Feature: WowStore Security
 
 Scenario: HTML injected into a block heading attribute is sanitized on the frontend
@@ -107,6 +117,7 @@ Scenario: HTML injected into a block heading attribute is sanitized on the front
     id: 'sensitive-data-not-exposed',
     title: 'Scenario: Sensitive admin data is NOT exposed in unauthenticated REST responses @regression @security',
     tags: ['@regression', '@security'],
+    specFile: 'tests/security/security.spec.ts',
     gherkin: `Feature: WowStore Security
 
 Scenario: Sensitive admin data is NOT exposed in unauthenticated REST responses

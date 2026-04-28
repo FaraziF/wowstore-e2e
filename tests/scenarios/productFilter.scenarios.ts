@@ -9,6 +9,8 @@
 //   - Cart Filter block taxonomy result issue (4.3.7)
 //   - Filter Block product sorting result issue (4.3.5)
 //   - Pagination nonce conflict with cache plugins (4.4.1)
+//
+// 💡 specFile: Cmd+Click (Mac) / Ctrl+Click (Win) the path to jump to the spec.
 
 import type { AnyScenario } from './index';
 
@@ -17,6 +19,7 @@ export const productFilterScenarios: AnyScenario[] = [
     id: 'filter-by-category',
     title: 'Scenario: Filter by category narrows the product grid results @smoke',
     tags: ['@smoke'],
+    specFile: 'tests/blocks/product-filter.spec.ts',
     gherkin: `Feature: WowStore Product Filter Block
 
 Scenario: Filter by category narrows the product grid results
@@ -31,6 +34,7 @@ Scenario: Filter by category narrows the product grid results
     id: 'filter-by-price-range',
     title: 'Scenario: Filter by price range excludes products outside the range @regression',
     tags: ['@regression'],
+    specFile: 'tests/blocks/product-filter.spec.ts',
     gherkin: `Feature: WowStore Product Filter Block
 
 Scenario: Filter by price range excludes products outside the range
@@ -45,6 +49,7 @@ Scenario: Filter by price range excludes products outside the range
     id: 'filter-multiple-criteria',
     title: 'Scenario: Multiple active filters combine with AND logic @regression',
     tags: ['@regression'],
+    specFile: 'tests/blocks/product-filter.spec.ts',
     gherkin: `Feature: WowStore Product Filter Block
 
 Scenario: Multiple active filters combine with AND logic
@@ -57,6 +62,7 @@ Scenario: Multiple active filters combine with AND logic
     id: 'filter-clear-resets-results',
     title: 'Scenario: Clearing all filters restores the full product list @regression',
     tags: ['@regression'],
+    specFile: 'tests/blocks/product-filter.spec.ts',
     gherkin: `Feature: WowStore Product Filter Block
 
 Scenario: Clearing all filters restores the full product list
@@ -69,6 +75,7 @@ Scenario: Clearing all filters restores the full product list
     id: 'filter-pagination-works',
     title: 'Scenario: Pagination works correctly after a filter is applied @regression',
     tags: ['@regression'],
+    specFile: 'tests/blocks/product-filter.spec.ts',
     gherkin: `Feature: WowStore Product Filter Block
 
 Scenario: Pagination works correctly after a filter is applied

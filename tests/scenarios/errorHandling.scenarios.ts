@@ -4,12 +4,16 @@
 // WooCommerce dependencies, data, or API conditions are abnormal.
 //
 // Tags: @error @smoke @regression
+//
+// 💡 specFile: Cmd+Click (Mac) / Ctrl+Click (Win) the path to jump to the spec.
 
 export type ErrorHandlingScenario = {
   id: string;
   title: string;
   tags: string[];
   gherkin: string;
+  /** Relative path to the spec file — Cmd+Click to navigate in VS Code */
+  specFile: string;
 };
 
 export const errorHandlingScenarios: ErrorHandlingScenario[] = [
@@ -18,6 +22,7 @@ export const errorHandlingScenarios: ErrorHandlingScenario[] = [
     id: 'wc-dependency-deactivated',
     title: 'Scenario: WowStore shows a dependency error when WooCommerce is deactivated @smoke @error',
     tags: ['@smoke', '@error'],
+    specFile: 'tests/error-handling/error-handling.spec.ts',
     gherkin: `Feature: WowStore Error Handling
 
 Scenario: WowStore shows a dependency error when WooCommerce is deactivated
@@ -37,6 +42,7 @@ Scenario: WowStore shows a dependency error when WooCommerce is deactivated
     id: 'wc-version-below-minimum',
     title: 'Scenario: Admin notice shown when WooCommerce version is below minimum @regression @error',
     tags: ['@regression', '@error'],
+    specFile: 'tests/error-handling/error-handling.spec.ts',
     gherkin: `Feature: WowStore Error Handling
 
 Scenario: Admin notice is shown when WooCommerce version is below minimum
@@ -51,6 +57,7 @@ Scenario: Admin notice is shown when WooCommerce version is below minimum
     id: 'block-empty-categories',
     title: 'Scenario: Product Category block renders gracefully when no categories exist @regression @error',
     tags: ['@regression', '@error'],
+    specFile: 'tests/error-handling/error-handling.spec.ts',
     gherkin: `Feature: WowStore Error Handling
 
 Scenario: Product Category block renders gracefully when no categories exist
@@ -66,6 +73,7 @@ Scenario: Product Category block renders gracefully when no categories exist
     id: 'block-empty-products',
     title: 'Scenario: Product block renders gracefully when no products exist @regression @error',
     tags: ['@regression', '@error'],
+    specFile: 'tests/error-handling/error-handling.spec.ts',
     gherkin: `Feature: WowStore Error Handling
 
 Scenario: Product block renders gracefully when no products exist
@@ -81,6 +89,7 @@ Scenario: Product block renders gracefully when no products exist
     id: 'invalid-product-api-response',
     title: 'Scenario: REST API call with invalid product ID returns 404 not 500 @regression @error',
     tags: ['@regression', '@error'],
+    specFile: 'tests/error-handling/error-handling.spec.ts',
     gherkin: `Feature: WowStore Error Handling
 
 Scenario: REST API call with an invalid product ID returns 404, not 500
@@ -95,6 +104,7 @@ Scenario: REST API call with an invalid product ID returns 404, not 500
     id: 'rest-api-malformed-data',
     title: 'Scenario: Posting malformed data to WC REST API returns structured error not 500 @regression @error',
     tags: ['@regression', '@error'],
+    specFile: 'tests/error-handling/error-handling.spec.ts',
     gherkin: `Feature: WowStore Error Handling
 
 Scenario: Posting malformed data to the WC REST API returns a structured error, not a 500
@@ -110,6 +120,7 @@ Scenario: Posting malformed data to the WC REST API returns a structured error, 
     id: 'missing-wc-pages',
     title: 'Scenario: WooCommerce Shop, Cart and Checkout pages exist and are not 404 @smoke @error',
     tags: ['@smoke', '@error'],
+    specFile: 'tests/error-handling/error-handling.spec.ts',
     gherkin: `Feature: WowStore Error Handling
 
 Scenario: WooCommerce Shop, Cart, and Checkout pages exist and are not 404

@@ -31,11 +31,21 @@ import { wishlistScenarios }         from './wishlist.scenarios';
 import { preOrderScenarios }         from './preOrder.scenarios';
 
 // ── Type that every scenario file must satisfy ────────────────────────────────
+/**
+ * AnyScenario — one Gherkin scenario entry.
+ *
+ * @field specFile  Relative path to the Playwright spec that implements this
+ *                  scenario. Ctrl+Click (Mac: Cmd+Click) the path string in
+ *                  VS Code to jump directly to the test file.
+ */
 export type AnyScenario = {
   id: string;
+  /** Playwright test title (include tags, e.g. @smoke) */
   title: string;
   tags: string[];
   gherkin: string;
+  /** Relative path to the spec file — Cmd+Click to navigate in VS Code */
+  specFile: string;
 };
 
 // ── Registry ─────────────────────────────────────────────────────────────────
@@ -45,6 +55,7 @@ export const SCENARIO_REGISTRY: Record<string, AnyScenario[]> = {
     ...s,
     // productCategoryScenarios use a slightly different shape — normalise tags
     tags: s.title.match(/@\w+/g) ?? [],
+    specFile: s.specFile,
   })),
   'Plugin Activation':  pluginActivationScenarios,
   'Admin Dashboard':    dashboardScenarios,
