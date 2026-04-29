@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-WowStore is a Gutenberg WooCommerce builder plugin with **25+ features** spanning store building, conversion optimization, cart management, and customer experience. The plugin supports **60,000+ businesses** and is a revenue-generating product for WPXPO.
+WowStore is a Gutenberg WooCommerce builder plugin with **25+ features** spanning store building, conversion optimization, cart management, and customer experience. The plugin supports **4,000+ businesses** and is a revenue-generating product for WPXPO.
 
 Manual testing every feature on every release is expensive and error-prone. This guide classifies every feature by:
 - **Business impact** (revenue risk if it breaks)
